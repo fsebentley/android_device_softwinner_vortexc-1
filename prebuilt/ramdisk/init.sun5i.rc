@@ -1,17 +1,18 @@
 import init.sun5i.usb.rc
 
 on early-init
-	export EXTERNAL_STORAGE /mnt/sdcard
-	mkdir /mnt/sdcard 0000 system system
-	# for backwards compatibility
-	symlink /mnt/sdcard /sdcard
-
-	mkdir /mnt/extsd 0000 system system
-	mkdir /mnt/usbhost1 0000 system system
+export EXTERNAL_STORAGE /mnt/sdcard
+        mkdir /mnt/sdcard 0000 system system
+        mkdir /mnt/extsd 0000 system system
+        mkdir /mnt/usbhost1 0000 system system
+        symlink /mnt/sdcard /sdcard
+		
 	mkdir /databk 0700 root  system
 
 on fs
     mount ext4 /dev/block/nandd /system wait noatime nodev barrier=0
+	
+	mount vfat /dev/block/nandj /mnt/sdcard rw utf8 noatime nodiratime
 
 # try to mount /data
 	wait /dev/block/nande
@@ -28,8 +29,6 @@ on fs
 	umount /cache
     exec /system/bin/logwrapper /system/bin/e2fsck -y /dev/block/nandh
     exec /system/bin/busybox mount -t ext4 -o noatime,nosuid,nodev,barrier=0,journal_checksum,noauto_da_alloc /dev/block/nandh /cache
-
-    format_userdata /dev/block/nandj VortexColor
     
 #try to format /databk
     wait /dev/block/nandi
