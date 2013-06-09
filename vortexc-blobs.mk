@@ -71,7 +71,7 @@ PRODUCT_COPY_FILES += \
 	device/softwinner/vortexc/prebuilt/etc/wifi/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf
 
 PRODUCT_COPY_FILES += \
-	$(call find-copy-subdir-files,*,device/softwinner/vortexc/prebuilt/lib/modules,system/vendor/modules)
+	$(call find-copy-subdir-files,*,device/softwinner/vortexc/prebuilt/lib/modules,system/lib/modules)
 
 # HACK by turl: Create some intermediate files to link with libMali/libUMP
 $(shell mkdir -p out/target/product/vortexc/obj/SHARED_LIBRARIES/libMali_intermediates)

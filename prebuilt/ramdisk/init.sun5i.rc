@@ -41,28 +41,28 @@ on fs
 on boot
 
 #insmod key & tp driver
-	insmod /system/vendor/modules/ft5x_ts.ko
+	insmod /system/lib/modules/ft5x_ts.ko
 
 #insmod mali driver
-	insmod /system/vendor/modules/ump.ko
-	insmod /system/vendor/modules/mali.ko
+	insmod /system/lib/modules/ump.ko
+	insmod /system/lib/modules/mali.ko
 
 #insmod video driver
-	insmod /system/vendor/modules/cedarx.ko
+	insmod /system/lib/modules/cedarx.ko
 	exec /system/bin/sh /system/bin/setupsensors.sh
 
 #csi module
-	insmod /system/vendor/modules/videobuf-core.ko
-	insmod /system/vendor/modules/videobuf-dma-contig.ko
-	insmod /system/vendor/modules/gc0308.ko
-	insmod /system/vendor/modules/sun5i_csi0.ko
+	insmod /system/lib/modules/videobuf-core.ko
+	insmod /system/lib/modules/videobuf-dma-contig.ko
+	insmod /system/lib/modules/gc0308.ko
+	insmod /system/lib/modules/sun5i_csi0.ko
 
 #network module
-	insmod /system/vendor/modules/asix.ko bsize=0
-	insmod /system/vendor/modules/qf9700.ko
-	insmod /system/vendor/modules/mcs7830.ko
-	insmod /system/vendor/modules/rtl8150.ko
-	insmod /system/vendor/modules/8192eu.ko
+	insmod /system/lib/modules/asix.ko bsize=0
+	insmod /system/lib/modules/qf9700.ko
+	insmod /system/lib/modules/mcs7830.ko
+	insmod /system/lib/modules/rtl8150.ko
+	insmod /system/lib/modules/8192cu.ko
 
 # WEXT: only support sta
 service wpa_supplicant /system/bin/wpa_supplicant -Dwext -iwlan0 \
@@ -72,4 +72,3 @@ service wpa_supplicant /system/bin/wpa_supplicant -Dwext -iwlan0 \
     group system wifi inet
     disabled
     oneshot
-
