@@ -85,7 +85,8 @@ PRODUCT_PACKAGES += \
 	LiveWallpapers \
 	LiveWallpapersPicker \
 	MagicSmokeWallpapers \
-	HoloSpiralWallpaper 
+	HoloSpiralWallpaper \
+	Camera
 
 PRODUCT_PACKAGES += \
 	VisualizationWallpapers \
@@ -97,6 +98,8 @@ PRODUCT_PACKAGES += \
 	hwcomposer.exDroid \
 	lights.sun5i \
 	display.sun5i \
+	camera.sun5i \
+	sensors.exDroid \
         libcedarxbase \
         libcedarxosal \
 	libcedarv \

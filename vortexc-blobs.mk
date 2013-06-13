@@ -51,8 +51,6 @@ PRODUCT_COPY_FILES += \
 	device/softwinner/vortexc/prebuilt/lib/egl/libGLESv1_CM_mali.so:system/lib/egl/libGLESv1_CM_mali.so \
 	device/softwinner/vortexc/prebuilt/lib/egl/libGLESv2_mali.so:system/lib/egl/libGLESv2_mali.so \
 	device/softwinner/vortexc/prebuilt/lib/liballwinner-ril.so:system/lib/liballwinner-ril.so \
-	device/softwinner/vortexc/prebuilt/lib/hw/camera.exDroid.so:system/lib/hw/camera.exDroid.so \
-	device/softwinner/vortexc/prebuilt/lib/hw/sensors.exDroid.so:system/lib/hw/sensors.exDroid.so \
 	device/softwinner/vortexc/prebuilt/lib/libMali.so:system/lib/libMali.so \
 	device/softwinner/vortexc/prebuilt/lib/libUMP.so:system/lib/libUMP.so \
 	device/softwinner/vortexc/prebuilt/lib/libMali.so:obj/lib/libMali.so \

@@ -42,8 +42,10 @@ on boot
 	insmod /system/lib/modules/asix.ko bsize=0
 	insmod /system/lib/modules/qf9700.ko
 	insmod /system/lib/modules/mcs7830.ko
-	insmod /system/lib/modules/rtl8150.ko
 	insmod /system/lib/modules/8192cu.ko
+
+#sensor module
+	insmod /system/lib/modules/mecs.ko
 
 # WEXT: only support sta
 service wpa_supplicant /system/bin/wpa_supplicant -Dwext -iwlan0 \
