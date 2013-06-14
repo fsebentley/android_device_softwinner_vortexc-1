@@ -34,6 +34,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	debug.egl.hw=1 \
 	ro.display.switch=1 \
 	ro.sf.lcd_density=120 \
+	dalvik.vm.heapsize=48m \
 	hwui.render_dirty_regions=false \
 	wifi.interface = wlan0 \
 	wifi.supplicant_scan_interval = 150 \
@@ -98,7 +99,7 @@ PRODUCT_PACKAGES += \
 	hwcomposer.exDroid \
 	lights.sun5i \
 	display.sun5i \
-	camera.sun5i \
+	camera.exDroid \
 	sensors.exDroid \
         libcedarxbase \
         libcedarxosal \
@@ -132,6 +133,7 @@ PRODUCT_PACKAGES += \
 	e2fsck
 
 $(call inherit-product, build/target/product/full_base.mk)
+$(call inherit-product, vendor/google/essencial.mk )
 
 # Should be after the full_base include, which loads languages_full
 PRODUCT_AAPT_CONFIG := large hdpi
