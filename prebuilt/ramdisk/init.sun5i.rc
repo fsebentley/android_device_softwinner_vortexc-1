@@ -21,47 +21,48 @@ on fs
 
 on boot
 
-    #csi module
+#csi module
 	insmod /system/lib/modules/videobuf-core.ko
 	insmod /system/lib/modules/videobuf-dma-contig.ko
+	insmod /system/lib/modules/gc0308.ko
 	insmod /system/lib/modules/sp0838.ko
 	insmod /system/lib/modules/gc0307.ko
 	insmod /system/lib/modules/gc0308.ko
 	insmod /system/lib/modules/gc0329.ko
 	insmod /system/lib/modules/sun5i_csi0.ko
-	
-	#insmod key & tp driver
+
+#insmod key & tp driver
 	insmod /system/lib/modules/ft5x_ts.ko
         insmod /system/lib/modules/aw5306_ts.ko
 	insmod /system/lib/modules/sw-keyboard.ko
 
-	#insmod mali driver
+#insmod mali driver
 	insmod /system/lib/modules/ump.ko
 	insmod /system/lib/modules/mali.ko
-	
-    #usb net module	
-    insmod /system/lib/modules/usbnet.ko
-    insmod /system/lib/modules/asix.ko
-    insmod /system/lib/modules/8192cu.ko
-    insmod /system/lib/modules/qf9700.ko
-    insmod /system/lib/modules/mcs7830.ko
-	
-    #insmod video driver
-    insmod /system/lib/modules/cedarx.ko
 
-    #insmod gsensor driver
-    insmod /system/lib/modules/mecs.ko
-    insmod /system/lib/modules/mxc622x.ko
-    chmod 777 /system/bin/memsicd
-    mkdir /data/misc/sensors 0777 system system
-    service memsicd /system/bin/logwrapper /system/bin/memsicd 
-    class main
+#network module
+ 	insmod /system/lib/modules/usbnet.ko
+    	insmod /system/lib/modules/asix.ko
+    	insmod /system/lib/modules/rtl8150.ko
+    	insmod /system/lib/modules/qf9700.ko
+    	insmod /system/lib/modules/mcs7830.ko
+
+#insmod video driver
+    	insmod /system/lib/modules/cedarx.ko
+
+#sensor module
+	insmod /system/lib/modules/mecs.ko
+    	insmod /system/lib/modules/mxc622x.ko
+    	chmod 777 /system/bin/memsicd
+    	mkdir /data/misc/sensors 0777 system system
+    	service memsicd /system/bin/logwrapper /system/bin/memsicd
+    	class main
 
 # WEXT: only support sta
-service wpa_supplicant /system/bin/wpa_supplicant -Dwext -iwlan0 \
+service wpa_supplicant /system/bin/wpa_supplicant -Dnl80211 -iwlan0 \
 	-c/data/misc/wifi/wpa_supplicant.conf -e/data/misc/wifi/entropy.bin
 	class main
-    socket wpa_wlan0 dgram 660 wifi wifi
-    group system wifi inet
-    disabled
-    oneshot
+    	socket wpa_wlan0 dgram 660 wifi wifi
+    	group system wifi inet
+    	disabled
+    	oneshot

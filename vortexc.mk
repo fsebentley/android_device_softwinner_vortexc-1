@@ -14,6 +14,15 @@
 # limitations under the License.
 #
 
+# Inherit overlay
+DEVICE_PACKAGE_OVERLAYS := device/softwinner/vortexc/overlay
+
+# Tablet configuration
+PRODUCT_CHARACTERISTICS := tablet
+
+PRODUCT_TAGS += dalvik.gc.type-precise
+
+# Ramdisk
 PRODUCT_COPY_FILES := \
 	device/softwinner/vortexc/prebuilt/ramdisk/kernel:kernel \
 	device/softwinner/vortexc/prebuilt/ramdisk/init.rc:root/init.rc \
@@ -24,46 +33,6 @@ PRODUCT_COPY_FILES := \
 	device/softwinner/vortexc/prebuilt/ramdisk/init.usb.rc:root/init.usb.rc \
 	device/softwinner/vortexc/prebuilt/ramdisk/ueventd.sun5i.rc:root/ueventd.sun5i.rc \
 	device/softwinner/vortexc/prebuilt/ramdisk/nand.ko:root/nand.ko
-
-PRODUCT_CHARACTERISTICS := tablet
-
-PRODUCT_TAGS += dalvik.gc.type-precise
-
-PRODUCT_PROPERTY_OVERRIDES += \
-	ro.opengles.version = 131072 \
-	debug.egl.hw=1 \
-	ro.display.switch=1 \
-	ro.sf.lcd_density=120 \
-	dalvik.vm.heapsize=48m \
-	hwui.render_dirty_regions=false \
-	wifi.interface = wlan0 \
-	wifi.supplicant_scan_interval = 150 \
-	persist.sys.strictmode.visual=0 \
-	persist.sys.strictmode.disable=1 \
-	persist.sys.usb.config=mass_storage,adb \
-	dalvik.vm.verify-bytecode=false \
-	dalvik.vm.dexopt-flags=v=n,o=v \
-	dalvik.vm.execution-mode=int:jit \
-	persist.sys.timezone=Europe/Rome \
-	persist.sys.language=es \
-	persist.sys.country=ES \
-	ro.com.google.locationfeatures=1 \
-	dalvik.vm.lockprof.threshold=500 \
-	ro.kernel.android.checkjni=0 \
-	dalvik.vm.checkjni=false \
-	dalvik.vm.dexopt-data-only=1 \
-	ro.vold.umsdirtyratio=20 \
-	persist.sys.use_dithering=0 \
-	persist.sys.purgeable_assets=0 \
-	windowsmgr.max_events_per_sec=240 \
-	view.touch_slop=2 \
-	view.minimum_fling_velocity=25 \
-	ro.additionalmounts=/storage/sdcard1 \
-	ro.vold.switchablepair=/storage/sdcard0,/storage/sdcard1 \
-	persist.sys.vold.switchexternal=0 \
-	ro.disable_phablet_ui=1
-
-DEVICE_PACKAGE_OVERLAYS := device/softwinner/vortexc/overlay
 
 # Permissions
 PRODUCT_COPY_FILES += \
@@ -81,17 +50,13 @@ PRODUCT_COPY_FILES += \
 	frameworks/native/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml \
 	packages/wallpapers/LivePicker/android.software.live_wallpaper.xml:/system/etc/permissions/android.software.live_wallpaper.xml
 
-# Publish that we support the live wallpaper feature.
+# Live Wallapapers
 PRODUCT_PACKAGES += \
 	LiveWallpapers \
 	LiveWallpapersPicker \
 	MagicSmokeWallpapers \
 	HoloSpiralWallpaper \
-	Camera
-
-PRODUCT_PACKAGES += \
-	VisualizationWallpapers \
-	librs_jni
+	VisualizationWallpapers
 
 # Hardware libs
 PRODUCT_PACKAGES += \
@@ -99,8 +64,8 @@ PRODUCT_PACKAGES += \
 	hwcomposer.exDroid \
 	lights.sun5i \
 	display.sun5i \
-	camera.exDroid \
 	sensors.exDroid \
+	camera.exDroid \
         libcedarxbase \
         libcedarxosal \
 	libcedarv \
@@ -121,26 +86,17 @@ PRODUCT_PACKAGES += \
 	libaudioutils \
 	chat \
 	u3gmonitor \
-	devlistener
-
-# CM9 apps
-PRODUCT_PACKAGES += \
-	com.android.future.usb.accessory
+	devlistener \
+	librs_jni
 
 # EXT4 Support
 PRODUCT_PACKAGES += \
 	make_ext4fs \
 	e2fsck
 
-$(call inherit-product, build/target/product/full_base.mk)
-$(call inherit-product, vendor/google/essencial.mk )
+# CM9 apps
+PRODUCT_PACKAGES += \
+	com.android.future.usb.accessory
 
-# Should be after the full_base include, which loads languages_full
-PRODUCT_AAPT_CONFIG := large hdpi
-PRODUCT_AAPT_PREF_CONFIG := hdpi
-
-PRODUCT_NAME := full_vortexc
-PRODUCT_DEVICE := vortexc
-
-TARGET_SCREEN_HEIGHT := 800
-TARGET_SCREEN_WIDTH := 480
+# Google Apps
+$(call inherit-product, vendor/google/essencial.mk ) 

@@ -22,7 +22,8 @@ PRODUCT_COPY_FILES += \
 	device/softwinner/vortexc/prebuilt/bin/mkntfs:system/bin/mkntfs \
 	device/softwinner/vortexc/prebuilt/bin/reboot-recovery.sh:system/bin/reboot-recovery.sh \
 	device/softwinner/vortexc/prebuilt/bin/usb_modeswitch:system/bin/usb_modeswitch \
-	device/softwinner/vortexc/prebuilt/bin/rild:system/bin/rild
+	device/softwinner/vortexc/prebuilt/bin/rild:system/bin/rild \
+	device/softwinner/vortexc/prebuilt/bin/memsicd:system/bin/memsicd
 
 # /system/etc
 PRODUCT_COPY_FILES += \
@@ -59,6 +60,7 @@ PRODUCT_COPY_FILES += \
 # /system/usr
 PRODUCT_COPY_FILES += \
 	device/softwinner/vortexc/prebuilt/usr/keylayout/axp20-supplyer.kl:system/usr/keylayout/axp20-supplyer.kl \
+	device/softwinner/vortexc/prebuilt/usr/keylayout/sw-keyboard.kl:system/usr/keylayout/sw-keyboard.kl \
 	device/softwinner/vortexc/prebuilt/usr/icu/icudt46l.dat:system/usr/icu/icudt46l.dat
 
 PRODUCT_COPY_FILES += \
