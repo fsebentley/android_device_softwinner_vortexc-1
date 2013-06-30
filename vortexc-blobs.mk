@@ -22,7 +22,8 @@ PRODUCT_COPY_FILES += \
 	device/softwinner/vortexc/prebuilt/bin/mkntfs:system/bin/mkntfs \
 	device/softwinner/vortexc/prebuilt/bin/reboot-recovery.sh:system/bin/reboot-recovery.sh \
 	device/softwinner/vortexc/prebuilt/bin/usb_modeswitch:system/bin/usb_modeswitch \
-	device/softwinner/vortexc/prebuilt/bin/rild:system/bin/rild
+	device/softwinner/vortexc/prebuilt/bin/rild:system/bin/rild \
+	device/softwinner/vortexc/prebuilt/bin/memsicd:system/bin/memsicd
 
 # /system/etc
 PRODUCT_COPY_FILES += \
